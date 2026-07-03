@@ -16,8 +16,8 @@ public class StudentmanagementApplication {
     // Yeh bean aapki properties file ko override karke direct Atlas se connect karwayegi
     @Bean
     public MongoClient mongoClient() {
-        // Apni real Atlas connection string yahan paste karein (password badalna mat bhoolna)
-        String atlasUri = "mongodb+srv://mauryaankit993535_db_user:vq18aS2YdOnA8Q5B@cluster0.8m7b35j.mongodb.net/";
+        // यह सिस्टम से MONGO_URI की वैल्यू उठाएगा
+        String atlasUri = System.getenv("MONGO_URI");
         return MongoClients.create(atlasUri);
     }
 }
